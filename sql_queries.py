@@ -12,7 +12,7 @@ songplay_table_create = "CREATE TABLE IF NOT EXISTS songplays   \
                         (                                       \
                             songplay_id VARCHAR,                \
                             start_time  TIMESTAMP,              \
-                            user_id     VARCHAR NOT NULL,       \
+                            user_id     VARCHAR,                \
                             level       VARCHAR,                \
                             song_id     VARCHAR,                \
                             artist_id   VARCHAR,                \
