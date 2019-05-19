@@ -9,7 +9,14 @@ import pandas as pd
 
 def process_song_file(cur, filepath):
     """
-    Process the song files in JSON format and populate songs & artists tables. 
+    Description: Process the song files in JSON format and populate songs & artists tables. 
+
+    Arguments:
+        cur: the cursor object
+        filepath: file path for the files that need to be processed
+
+    Returns:
+        Populates the songs & artists tables tables in the sparkify database
     """
     song_file = []
     # open song file
@@ -31,7 +38,14 @@ def process_song_file(cur, filepath):
 
 def process_log_file(cur, filepath):
     """
-    Process the log files in JSON format and populate time, users & songplays tables. 
+    Description: Process the log files in JSON format and populate time, users & songplays tables. 
+
+    Arguments:
+        cur: the cursor object
+        filepath: file path for the files that need to be processed
+
+    Returns:
+        Populates the time, users & songplays tables tables in the sparkify database
     """
     logs = []
     # open log file
@@ -124,7 +138,16 @@ def process_log_file(cur, filepath):
 
 def process_data(cur, conn, filepath, func):
     """
-    Process the given filepath as per the helper function passed
+    Description: Process the given filepath as per the helper function passed
+
+    Arguments:
+        cur: the cursor object
+        conn: connection to the database
+        filepath: file path for the files that need to be processed
+        func: function that should be called given the nature of the data
+
+    Returns:
+        None
     """
     # get all files matching extension from directory
     all_files = []
@@ -146,7 +169,13 @@ def process_data(cur, conn, filepath, func):
 
 def main():
     """
-    ETL script for Project 1
+    Description: ETL Script for Project 1
+
+    Arguments:
+        None
+
+    Returns:
+        None
     """
     conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
     cur = conn.cursor()
